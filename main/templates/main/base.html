@@ -24,12 +24,7 @@
             <li><a href="{% url "main:index" %}">На главную</a></li>
             <li><a href="{% url "main:about" %}">О нас</a></li>
             <li><a href="{% url "main:rules" %}">Правила студии</a></li>
-            <li><a class="profile-menu-trigger" data-trigger="dropdown" href="./services.html">Абонементы</a>
-              <ul class="profile-submenu submenu">
-                <li><a href="#">Групповые</a></li>
-            <li><a href="#">Индивидуальные</a></li>
-          </ul>
-            </li>
+            <li><a href="{% url "catalog:index" %}">Абонементы</a></li>
             <li><a href="https://dikidi.ru/#widget=71167">On-line запись</a></li>
           </ul>
         </nav>

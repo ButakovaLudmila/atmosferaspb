@@ -14,3 +14,4 @@ def form(request):
 
 def rules(request):
     return render(request, 'main/rules.html')
+

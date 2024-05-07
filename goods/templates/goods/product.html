@@ -1,0 +1,34 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container">
+      <h2 class="center-text">
+       Магазин абонементов
+      </h2>
+    </div>
+    <div class="container grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src={% static "deps/img/1.jpg" %} id="card-img">
+        <div class="card-content">
+          <div class="card-tags">
+            <span class="tag" id="tag-violet">Умный фитнес</span>
+            <span class="tag" id="tag-blue">Растяжка</span>
+          </div>
+          <p class="card-title">Альфа-гравити</p>
+          <ul class="card-attributes">
+            <li id="card-attribute">
+              <span>Занятие: <strong>55 мин</strong></span>
+            </li>
+            <li id="card-attribute">
+              <span>Уровень: <strong>все</strong></span>
+            </li>
+            <li id="card-attribute">
+              <span><strong>Стоимость:</strong> от 1400 руб.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </section>
+{% endblock %}
