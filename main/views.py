@@ -6,6 +6,11 @@ def index(request):
     return render(request, 'main/index.html')
 
 
-def about(request) -> HttpResponse:
-    
-    return HttpResponse('About')
+def about(request):
+    return render(request, 'main/about.html')
+
+def form(request):
+    return render(request, 'main/form.html')
+
+def rules(request):
+    return render(request, 'main/rules.html')

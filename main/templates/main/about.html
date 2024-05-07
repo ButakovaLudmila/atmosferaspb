@@ -1,0 +1,120 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container">
+      <h2 class="center-text">
+       Направления занятий
+      </h2>
+    </div>
+    <div class="container grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src={% static "deps/img/1.jpg" %} id="card-img">
+        <div class="card-content">
+          <div class="card-tags">
+            <span class="tag" id="tag-violet">Умный фитнес</span>
+            <span class="tag" id="tag-blue">Растяжка</span>
+          </div>
+          <p class="card-title">Альфа-гравити</p>
+          <ul class="card-attributes">
+            <li id="card-attribute">
+              <span>Занятие: <strong>55 мин</strong></span>
+            </li>
+            <li id="card-attribute">
+              <span>Уровень: <strong>все</strong></span>
+            </li>
+            <li id="card-attribute">
+              <span><strong>Стоимость:</strong> от 1400 руб.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card">
+        <img src={% static "deps/img/2.jpg" %} id="card-img">
+        <div class="card-content">
+          <div class="card-tags">
+            <span class="tag" id="tag-violet">Кардио</span>
+            <span class="tag" id="tag-green">Функционалка</span>
+          </div>
+          <p class="card-title">Банджи</p>
+          <ul class="card-attributes">
+            <li id="card-attribute">
+              <span>Занятие: <strong>55 мин</strong></span>
+            </li>
+            <li id="card-attribute">
+              <span>Уровень: <strong>средний</strong></span>
+            </li>
+            <li id="card-attribute">
+              <span><strong>Стоимость:</strong> от 1200 руб.</span>
+            </li>
+          </ul>
+        </div>
+      </div>    
+      <!-- Card 03 -->
+      <div>
+        <h3>Преимущества тренировок:</h3>
+        <ul class="list">
+          <li class="list-item tooltip">Универсальность<span class="tooltiptext">Вы можете прийти на 
+            тренировки с любым запросом: <br>
+            <ul>
+              <li class="list-simple">
+              подкачать ноги
+              </li>
+              <li class="list-simple">
+              улучшить осанку
+              </li>
+              <li class="list-simple">
+                сбросить вес
+              </li>
+              <li class="list-simple">
+                просто
+                расслабиться после офисной работы
+              </li>
+              </ul>
+            У Альфа-Гравити очень много вариантов применения!
+          </span></li>
+          <li class="list-item tooltip">Простота и легкость<span class="tooltiptext">
+            Гравитационные практики подходят для людей с любой физической подготовкой. 
+            Тренер подберет для вас упражнения, которые вам в данный момент по силам, 
+            а когда ваше тело будет готово, постепенно увеличит нагрузку.
+          </span></li>
+          <li class="list-item tooltip">Безопасность<span class="tooltiptext">
+            В воздухе нагрузка на позвоночник и суставы минимальна, поэтому у Альфа-Гравити очень 
+            мало противопоказаний. Занятия проходят под контролем тренера, что исключает возможность 
+            травм, и подходят людям любого возраста и комплекции. К нам приходят люди, в том числе, для 
+            восстановления после различных травм: комплекс упражнений подбирается индивидуально. Если вы
+             сомневаетесь, можно ли вам заниматься Альфа-Гравити, мы с удовольствием подробно вас 
+             проконсультируем.
+          </span></li>
+          <li class="list-item">
+            <span>Подходит для детей</span>
+          </li>
+          <li class="list-item">
+            <span>Спокойствие и расслабление</span>
+          </li>
+          <li class="list-item">
+            <span>Это интересно</span>
+          </li>
+          <li class="list-item">
+            <span>Умный фитнес</span>
+          </li>
+          <li class="list-item">
+            <span>Сжигание калорий</span>
+          </li>
+          <li class="list-item">
+            <span>Выплеск эмоций</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <iframe class="video" src="https://www.youtube.com/embed/a_jyDIl0JVo"
+       title="Занятия в студии Альфа Гравити">
+    </iframe>
+    </div>   
+  </section>     
+{% endblock %}

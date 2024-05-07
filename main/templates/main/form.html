@@ -1,0 +1,43 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container">
+      <div class="cta">
+        <div class="cta-text-box">
+          <h2 class="heading-secondary">Заявка на занятие</h2>
+          <p class="cta-text">
+            Откройте для себя легкий фитнес, фитнес без боли и без насилия над собой,
+            фитнес в удовольствие! Запишитесь на пробное занятие, заполнив форму,
+             и мы с вами свяжемся.
+          </p>
+
+          <form class="cta-form" action="#">
+            <div>
+              <label for="full-name">Ваше имя</label>
+              <input id="full-name" type="text" placeholder="Иванов Иван" required="">
+            </div>
+
+            <div>
+              <label for="email">Email адрес</label>
+              <input id="email" type="email" placeholder="me@example.com" required="">
+            </div>
+
+            <div>
+              <label for="select-trainer">Выберите тренера</label>
+              <select id="select-trainer" required="">
+                <option value="">Выберите тренера</option>
+                <option value="">Сафонова Мария</option>
+                <option value="">Буркова Татьяна</option>
+                <option value="">Бутакова Людмила</option>
+              </select>
+            </div>
+
+            <button class="btn btn--form">Записаться</button>
+          </form>
+        </div>
+        <div class="cta-img-box"></div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
