@@ -1,0 +1,1 @@
+[{"model": "goods.formats", "pk": 1, "fields": {"name": "Групповые занятия", "slug": "group"}}, {"model": "goods.formats", "pk": 2, "fields": {"name": "Парные занятия", "slug": "pair"}}, {"model": "goods.formats", "pk": 3, "fields": {"name": "Индивидуальные занятия", "slug": "indiv"}}, {"model": "goods.formats", "pk": 4, "fields": {"name": "Все форматы", "slug": null}}]

@@ -11,10 +11,10 @@ document.addEventListener( "DOMContentLoaded" , function() {
      // Выпадающее меню
   $("[data-trigger='dropdown']").on("mouseenter",function(){
     var submenu = $(this).parent().find(".submenu");
-    //submenu.addClass("active");
-    submenu.fadeIn(300);
+    submenu.addClass("active");
+    submenu.fadeIn(10000);
 
     $(".main-menu").on("mouseleave",function(){
-      submenu.fadeOut(300);
+      submenu.fadeOut(10000);
     })
   });
