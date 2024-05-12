@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="cta-reg">
+              <div class="cta-text-box">
+                <h2 class="heading-secondary">Профиль пользователя</h2>
+  
+                <form class="cta-form-reg" action="#">
+                    <div >
+                        <label for="firstName" >Имя*</label>
+                        <input type="text"  id="firstName"
+                            placeholder="Введите ваше имя" required>
+                    </div>
+                    <div >
+                        <label for="lastName">Фамилия*</label>
+                        <input type="text" id="lastName"
+                            placeholder="Введите вашу фамилию" required>
+                    </div>
+                    <div >
+                        <label for="username" >Имя пользователя*</label>
+                        <input type="text"  id="username"
+                            placeholder="Введите ваше имя пользователя" required>
+                    </div>
+                    <div >
+                        <label for="email" >Email*</label>
+                        <input type="email"  id="email"
+                            placeholder="Введите ваш email" required>
+                    </div>   
+   
+                  <button class="btn btn--form">Сохранить</button>
+                </form>
+              </div>
+              <div class="cta-reg">
+                <div class="cta-text-box">
+                  <h2 class="heading-secondary">Корзина</h2>
+                </div> 
+                <div>
+                <button class="btn btn--form">Оформить заказ</button>
+                </div>
+            </div>
+          </div>
+    </section>
+    {% endblock %}

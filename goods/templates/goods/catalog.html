@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block content %}
 <section>
@@ -8,71 +8,73 @@
       </h2>
     </div>
     <div class="container grid">
-      <!-- Card 1 -->
+      {% for product in goods %}
+      <!-- Card -->
       <div class="card">
-        <img src={% static "deps/img/1.jpg" %} id="card-img">
+        <a href="{% url "catalog:product" product.slug %}">
+          {% if product.image %}
+                <img src={{product.image.url}} id="card-img">
+            {% else %}
+                <img src="{% static "deps/img/1.jpg" %}" id="card-img">
+            {% endif %}
+        </a>
         <div class="card-content">
-          <div class="card-tags">
-            <span class="tag" id="tag-violet">Умный фитнес</span>
-            <span class="tag" id="tag-blue">Растяжка</span>
-          </div>
-          <p class="card-title">Альфа-гравити</p>
+          <a href="{% url "catalog:product" product.slug %}">
+            <p class="card-title">
+                {% autoescape off %}
+                    {% if product.headline %}
+                    {{product.headline}}
+                    {% else %}
+                    <p class="card-title">{{product.name}}</p>
+                    {% endif %}
+                {% endautoescape %}
+            </p>
+        </a>    
           <ul class="card-attributes">
             <li id="card-attribute">
-              <span>Занятие: <strong>55 мин</strong></span>
+              <span><strong>{{product.category}}</strong></span>
             </li>
             <li id="card-attribute">
-              <span>Уровень: <strong>все</strong></span>
+                {% if product.discount %}
+                  <span>Скидка: {{ product.discount }} %</span>
+                  <li id="card-attribute">
+                    <p><s>{{product.price}}</s> ₽</p>
+                    <p><strong>{{ product.sell_price }} ₽</strong></p>
+                  </li>  
+                {% else %}
+                  <p><strong>{{ product.price }} ₽</strong></p>
+                {% endif %}
             </li>
             <li id="card-attribute">
-              <span><strong>Стоимость:</strong> от 1400 руб.</span>
+              <div class="number">
+                <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
+                <input type="number" min="0" value="1" readonly>
+                <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+              </div>
+              <a href="#" class="btn btn--full">Купить</a>
             </li>
-          </ul>
+          </ul>           
         </div>
       </div>
-      <!-- Card 2 -->
-      <div class="card">
-        <img src={% static "deps/img/2.jpg" %} id="card-img">
-        <div class="card-content">
-          <div class="card-tags">
-            <span class="tag" id="tag-violet">Кардио</span>
-            <span class="tag" id="tag-green">Функционалка</span>
-          </div>
-          <p class="card-title">Банджи</p>
-          <ul class="card-attributes">
-            <li id="card-attribute">
-              <span>Занятие: <strong>55 мин</strong></span>
-            </li>
-            <li id="card-attribute">
-              <span>Уровень: <strong>средний</strong></span>
-            </li>
-            <li id="card-attribute">
-              <span><strong>Стоимость:</strong> от 1200 руб.</span>
-            </li>
-          </ul>
-        </div>
-      </div>    
-      <!-- Card 03 -->
-      <div class="card">
-        <img src={% static "deps/img/2.jpg" %} id="card-img">
-        <div class="card-content">
-          <div class="card-tags">
-            <span class="tag" id="tag-violet">Кардио</span>
-            <span class="tag" id="tag-green">Функционалка</span>
-          </div>
-          <p class="card-title">Банджи</p>
-          <ul class="card-attributes">
-            <li id="card-attribute">
-              <span>Занятие: <strong>55 мин</strong></span>
-            </li>
-            <li id="card-attribute">
-              <span>Уровень: <strong>средний</strong></span>
-            </li>
-            <li id="card-attribute">
-              <span><strong>Стоимость:</strong> от 1200 руб.</span>
-            </li>
-          </ul>
-        </div>
-      </div>   
+      {% endfor %}
   </section>
+
+  <section>
+  <!-- Пагинация -->
+  <div class="container">
+  <div class="center">
+    <div class="pagination">
+      <a class="page-link" href="{% if goods.has_previous %}?page={{goods.previous_page_number}}{% else %}#{% endif %}">Назад</a>
+      {% for page in goods.paginator.page_range %}
+      {% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
+      <a class="{% if goods.number == page %} active {% endif %}" 
+      href="?page={{page}}">{{page}}</a>
+      {% endif %}
+      {% endfor %}
+      <a class="page-link" href="{% if goods.has_next %}?page={{goods.next_page_number}}{% else %}#{% endif %}">Вперед</a>
+    </div>
+  </div>
+</div>
+</section>
+
 {% endblock %}

@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    "debug_toolbar",
+
     'main',
     'goods',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +53,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+
 ]
 
 ROOT_URLCONF = 'atmosferaspb.urls'
@@ -56,7 +63,7 @@ ROOT_URLCONF = 'atmosferaspb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,8 +84,15 @@ WSGI_APPLICATION = 'atmosferaspb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Atmosfera',
+        'USER': 'admin',
+        'PASSWORD': 'Samsung@1301',
+        'HOST': '127.0.0.1', 
+        'PORT': '3306', 
+        'OPTIONS': { 
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" 
+        } 
     }
 }
 
@@ -105,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -121,6 +135,16 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS: list [Path]  = [
     BASE_DIR / 'static'
     ]
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
