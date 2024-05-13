@@ -104,6 +104,20 @@
   background-color: #1768d1;
 }
 
+.btn--addtocart:link,
+.btn--addtocart:visited {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+.btn--addtocart:hover,
+.btn--addtocart:active {
+  background-color: #1768d1;
+}
+
+
+
+
 .btn--outline:link,
 .btn--outline:visited {
   background-color: #fff;
@@ -755,6 +769,14 @@ table tbody tr:last-child td:last-child {
 /*****************************************************/
 /* Модальное окно корзины */
 /*****************************************************/
+
+#goods-in-cart-count {
+  font-size: 18px;
+}
+
+.remove-from-cart {
+  font-size: 18px;
+}
 
 /*CSS-свойства для заднего фона*/
 .iw-modal {

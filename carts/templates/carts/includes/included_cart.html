@@ -31,7 +31,8 @@
             <td>X {{cart.product.sell_price}} &#x20bd; = </td>
             <td> {{cart.products_price}} &#x20bd;</td>
             <td> 
-              <a href="{% url "cart:cart_remove" cart.id %}" >
+              <a href="{% url "cart:cart_remove"%}" class="remove-from-cart" data-cart-id="{{ cart.id }}">
+                {% csrf_token %}
               <img src="{% static "deps/icons/cross.svg"%}" alt="Catalog Icon" width="24"height="24">
               </a>
             </td>

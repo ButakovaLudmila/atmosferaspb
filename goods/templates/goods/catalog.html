@@ -52,7 +52,9 @@
             </li>
             <li id="card-attribute">
               <div>
-                <a href="{% url "cart:cart_add" product.slug%}" class="btn btn--full">Купить</a>
+                <a href="{% url "cart:cart_add" %}" class="btn btn--addtocart" 
+                data-product-id="{{product.id}}">Купить</a>
+                {% csrf_token %}
               </div>
             </li>
           </ul>           

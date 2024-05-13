@@ -39,12 +39,13 @@
             {% endif %}  
       </span>       
             <div id="card-attribute">
-              <div class="number">
-                <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
-                <input type="number" min="0" value="1" readonly>
-                <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+              
+              <div>
+                <a href="{% url "cart:cart_add" %}" class="btn btn--addtocart" 
+                data-product-id="{{product.id}}">Купить</a>
+                {% csrf_token %}
               </div>
-              <a href="{% url "cart:cart_add" product.slug%}" class="btn btn--full">Купить</a>
+              
             </div>        
     </div>
     
