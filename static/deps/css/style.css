@@ -778,6 +778,10 @@ table tbody tr:last-child td:last-child {
   font-size: 18px;
 }
 
+.valuenumber {
+  font-size: 18px;
+}
+
 /*CSS-свойства для заднего фона*/
 .iw-modal {
   opacity: 0; /*изначально этот блок должен быть прозрачным*/ 

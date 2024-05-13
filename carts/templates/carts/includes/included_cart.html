@@ -23,9 +23,15 @@
           <tr>
             <td>
                 <div class="number">
-                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
-                    <input type="number" min="0" value="{{cart.quantity}}" readonly>
-                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+                    <button class="number-minus" type="button" data-cart-id="{{cart.id}}" 
+                    data-cart-change-url="{% url "cart:cart_change" %}">
+                    {% csrf_token %}
+                    -</button>
+                    <input type="number" class="valuenumber" min="0" value="{{cart.quantity}}" readonly>
+                    <button class="number-plus" type="button" data-cart-id="{{cart.id}}"
+                    data-cart-change-url="{% url "cart:cart_change" %}">
+                    {% csrf_token %}
+                    +</button>
                   </div>
             </td>
             <td>X {{cart.product.sell_price}} &#x20bd; = </td>
