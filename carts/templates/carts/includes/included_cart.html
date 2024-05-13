@@ -29,10 +29,11 @@
                   </div>
             </td>
             <td>X {{cart.product.sell_price}} &#x20bd; = </td>
-            <td> {{cart.product.price}} &#x20bd;</td>
-            <td> <img src="{% static "deps/icons/cross.svg"%}" alt="Catalog Icon" width="24"
-                 height="24">
-                </a>
+            <td> {{cart.products_price}} &#x20bd;</td>
+            <td> 
+              <a href="{% url "cart:cart_remove" cart.id %}" >
+              <img src="{% static "deps/icons/cross.svg"%}" alt="Catalog Icon" width="24"height="24">
+              </a>
             </td>
           </tr>
          
@@ -44,7 +45,7 @@
           <table border="1px" width="100%">
             <thead>
               <tr>
-                <th colspan="5">Итого {{carts.total_quantity}} товар(а) на сумму:</th>
+                <th colspan="4">Итого {{carts.total_quantity}} товар(а) на сумму:</th>
               </tr>  
             </thead>
             <tbody>
@@ -53,10 +54,11 @@
               </tr>
             </tbody>
           </table>
-
+          {% if carts %}
           <div>
             <a href="#" class="btn btn--form">Оформить заказ</a>
           </div>
+          {% endif %}
         
     </div>
     </div>
