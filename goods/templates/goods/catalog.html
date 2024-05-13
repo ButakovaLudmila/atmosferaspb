@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block madal_cart %}
+{% include "includes/cart_button.html"%}
+{% endblock %}
+
 {% block content %}
 <section>
     <div class="container">
@@ -46,12 +51,9 @@
                 {% endif %}
             </li>
             <li id="card-attribute">
-              <div class="number">
-                <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
-                <input type="number" min="0" value="1" readonly>
-                <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+              <div>
+                <a href="{% url "cart:cart_add" product.slug%}" class="btn btn--full">Купить</a>
               </div>
-              <a href="#" class="btn btn--full">Купить</a>
             </li>
           </ul>           
         </div>

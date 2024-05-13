@@ -38,9 +38,11 @@
         </nav>
       </header>
     <main>
-      
-        {% include "carts/includes/included_cart.html" %}
+
+        {% block madal_cart %}{% endblock %}
+
         {% block content %}{% endblock %}
+        
     </main>
 
     <footer class="footer">

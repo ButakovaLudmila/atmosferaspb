@@ -1,0 +1,17 @@
+{% load static %}
+
+{% load carts_tags %}
+
+{% user_carts request as carts %}
+
+<div class="container">
+    <a href="#iw-modal" class="iw-modal-btn btn-dark">
+        <img src="{% static "deps/icons/basket2-fill.svg"%}" alt="Catalog Icon" width="24"
+                    height="24">
+                <span id="goods-in-cart-count">{{carts.total_quantity}}</span>
+        </a>
+</div>
+
+<div id="iw-modal" class="iw-modal">
+    {% include "carts/includes/included_cart.html" %}
+</div>
