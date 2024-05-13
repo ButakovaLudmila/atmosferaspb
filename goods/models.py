@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Categories(models.Model):
@@ -14,6 +15,7 @@ class Categories(models.Model):
 
     def __str__(self):
         return str(self.name)
+    
 
 
 class Formats(models.Model):
@@ -62,6 +64,9 @@ class Products(models.Model):
 
     def __str__(self):
         return str(self.name)
+    
+    def get_absolute_url(self):
+        return reverse("catalog:product", kwargs={"product_slug": self.slug})
     
     def sell_price(self):
         if self.discount:
