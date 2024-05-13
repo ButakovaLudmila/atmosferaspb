@@ -13,10 +13,10 @@
                 <div class="iw-modal-wrapper">
                   <div class="iw-CSS-modal-inner">
                     <div class="iw-modal-header">
-                      <h3 class="iw-modal-title">Профиль пользователя</h3>
+                      <h3 class="iw-modal-title">Детали заказа</h3>
                     </div>
                         <div class="iw-modal-text">
-                            <form class="cta-form-reg" action="{% url "users:profile" %}" method="post" enctype="multipart/form-data">
+                            <form class="cta-form-reg" action="{% url "orders:create_order" %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                               <div>
                                 <label for="id_first_name" >Имя*</label>
@@ -40,30 +40,19 @@
                               <div>{{form.last_name.errors}}</div>
                               {% endif %}
                               </div>
-                              <div >
-                              <label for="id_username" >Имя пользователя*</label>
-                              <input type="text" id="id_username"
-                              name="username"
-                              placeholder="Введите ваше имя пользователя"
-                              value="{{ form.username.value }}"
-                              required>
-                              {% if form.username.errors %}
-                              <div>{{form.username.errors}}</div>
-                              {% endif %}
-                              </div>
-                              <div >
-                              <label for="id_email" >Email*</label>
-                              <input type="email" id="id_email"
-                              name="email"
-                              placeholder="Введите ваш email *youremail@example.com"
-                              value="{{ form.email.value }}"
-                              required>
-                              {% if form.email.errors %}
-                              <div>{{form.email.errors}}</div>
-                              {% endif %}
-                              </div>
-   
-                              <button class="btn btn--form">Сохранить</button>
+                              <div class="col-md-6 mb-3">
+                                <label for="id_phone_number">Номер телефона*:</label>
+                                <input type="text" id="id_phone_number" name="phone_number"
+                                    value="{% if form.phone_number.value %}{{ form.phone_number.value }}
+                                    {% endif %}"
+                                    placeholder="В формате: XXX-XXX-XX-XX"
+                                    required>
+                                {% if form.phone_number.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.phone_number.errors}}</div>
+                                {% endif %}
+                            </div>
+                              <button class="btn btn--form">
+                                Оплатить заказ</button>
                             </form>
                           </div>
                     </div>
@@ -75,4 +64,3 @@
     </div>
     </section>
     {% endblock %}
-

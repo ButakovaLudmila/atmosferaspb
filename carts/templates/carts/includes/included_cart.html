@@ -63,7 +63,7 @@
           </table>
           {% if carts %}
           <div>
-            <a href="#" class="btn btn--form">Оформить заказ</a>
+            <a href="{% url "orders:create_order" %}" class="btn btn--form">Оформить заказ</a>
           </div>
           {% endif %}
         
