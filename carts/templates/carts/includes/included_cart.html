@@ -1,0 +1,71 @@
+
+{% load static %}
+<!---Разметка для модального окна---->	
+
+
+<div class="container">
+    <a href="#iw-modal" class="iw-modal-btn btn-dark">
+        <img src="{% static "deps/icons/basket2-fill.svg"%}" alt="Catalog Icon" width="24"
+                    height="24">
+                <span id="goods-in-cart-count">0</span>
+        </a>
+</div>
+
+<div id="iw-modal" class="iw-modal">
+    <div class="iw-modal-wrapper">
+    <div class="iw-CSS-modal-inner">
+    <div class="iw-modal-header">
+    <h3 class="iw-modal-title">Корзина</h3>
+    <a href="#close" title="Закрыть" class="iw-close">×</a>
+    </div>
+    <div class="iw-modal-text">    
+       
+        <table border="1px" width="100%">
+            <thead>
+              <tr>
+                <th colspan="5">Товары</th>
+              </tr>  
+            </thead>
+            <tbody>
+              <tr>
+                <td>Абонемент на 4 занятия. Направление: Альфа-гравити</td>
+                <td>
+                    <div class="number">
+                        <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
+                        <input type="number" min="0" value="1" readonly>
+                        <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+                      </div>
+                </td>
+                <td>X 100.00 &#x20bd; = </td>
+                <td> 100.00 &#x20bd;</td>
+                <td> <img src="{% static "deps/icons/cross.svg"%}" alt="Catalog Icon" width="24"
+                     height="24">
+                    </a>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+
+          <table border="1px" width="100%">
+            <thead>
+              <tr>
+                <th colspan="5">Итого 1 товар(а) на сумму:</th>
+              </tr>  
+            </thead>
+            <tbody>
+              <tr>
+                <td>100.00 &#x20bd;</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div>
+            <a href="#" class="btn btn--full">Оформить заказ</a>
+          </div>
+        
+    </div>
+    </div>
+    </div>	
+    </div>
+    <!---end.Разметка для модального окна---->	
