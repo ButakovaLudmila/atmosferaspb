@@ -1,15 +1,12 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
-
 from carts.models import Cart
 from carts.utils import get_user_carts
 from goods.models import Products
 from django.template.loader import render_to_string
 
 def cart_add(request):
-    
     product_id = request.POST.get("product_id")
-
     product = Products.objects.get(id=product_id)
     
     if request.user.is_authenticated:
@@ -22,8 +19,7 @@ def cart_add(request):
                 cart.save()
         else:
             Cart.objects.create(user=request.user, product=product, quantity=1)
-
-    
+   
     else:
         carts = Cart.objects.filter(
             session_key=request.session.session_key, product=product)
@@ -47,7 +43,6 @@ def cart_add(request):
     }
 
     return JsonResponse(response_data)
-
 
 def cart_change(request):
     cart_id = request.POST.get("cart_id")

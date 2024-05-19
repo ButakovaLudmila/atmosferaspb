@@ -10,15 +10,13 @@
       <div class="container">
         <div class="cta-reg">
           <div class="cta-text-box">
-                <div class="iw-modal-wrapper">
+            <h3>Данные о покупателе:<h3>
+                <div class="iw-modal-wrapper-orders">
                   <div class="iw-CSS-modal-inner">
-                    <div class="iw-modal-header">
-                      <h3 class="iw-modal-title">Детали заказа</h3>
-                    </div>
                         <div class="iw-modal-text">
-                            <form class="cta-form-reg" action="{% url "orders:create_order" %}" method="post" enctype="multipart/form-data">
+                          <form class="cta-form-reg" action="{% url "orders:create_order" %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                              <div>
+                                <div>
                                 <label for="id_first_name" >Имя*</label>
                                 <input type="text" id="id_first_name"
                                 name="first_name"
@@ -55,12 +53,36 @@
                                 Оплатить заказ</button>
                             </form>
                           </div>
-                    </div>
+                  </div>
                 </div>	
-              </div>  
-              {% user_carts request as carts %}         
-              {% include "carts/includes/included_cart.html" %} 
-              </div>
-    </div>
-    </section>
-    {% endblock %}
+            </div>  
+            <div class="cta-text-box">   
+              <h3>Данные о товарах:</h3>                    
+                  {% user_carts request as carts %}         
+                  {% include "carts/includes/included_cart.html" %} 
+              
+            </div>	
+  </section>
+
+  
+</div>
+        </div>
+      </div>	
+
+
+
+
+</div>  
+</div>   
+
+
+</div>	
+</div>  
+</div>
+
+</section>
+
+{% endblock %}
+
+
+

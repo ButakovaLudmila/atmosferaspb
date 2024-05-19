@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from goods.models import Categories, Products, Formats
 
 @admin.register(Categories)
@@ -8,7 +7,7 @@ class CategoriesAdmin(admin.ModelAdmin):
     list_display = ["name",]
 
 @admin.register(Formats)
-class CategoriesAdmin(admin.ModelAdmin):
+class FormatsAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     list_display = ["name",]    
 

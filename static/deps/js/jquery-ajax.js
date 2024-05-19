@@ -43,6 +43,10 @@ $(document).ready(function () {
                 var cartItemsContainer = $("#iw-modal");
                 cartItemsContainer.html(data.cart_items_html);
 
+                // Меняем содержимое корзины
+                var cartItemsContainer1 = $(".iw-modal-wrapper-orders-cart");
+                cartItemsContainer1.html(data.cart_items_html);
+
             },
 
             error: function (data) {
@@ -93,6 +97,10 @@ $(document).ready(function () {
                 // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
                 var cartItemsContainer = $("#iw-modal");
                 cartItemsContainer.html(data.cart_items_html);
+
+                // Меняем содержимое корзины
+                var cartItemsContainer1 = $(".iw-modal-wrapper-orders-cart");
+                cartItemsContainer1.html(data.cart_items_html);
 
             },
 
@@ -171,6 +179,11 @@ $(document).ready(function () {
                 // Меняем содержимое корзины
                 var cartItemsContainer = $("#iw-modal");
                 cartItemsContainer.html(data.cart_items_html);
+
+                // Меняем содержимое корзины
+                var cartItemsContainer1 = $(".iw-modal-wrapper-orders-cart");
+                cartItemsContainer1.html(data.cart_items_html);
+
 
             },
             error: function (data) {

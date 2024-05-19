@@ -10,11 +10,9 @@
       <div class="container">
         <div class="cta-reg">
           <div class="cta-text-box">
-                <div class="iw-modal-wrapper">
+            <h3 class="iw-modal-title">Профиль пользователя:</h3>
+                <div class="iw-modal-wrapper-orders">
                   <div class="iw-CSS-modal-inner">
-                    <div class="iw-modal-header">
-                      <h3 class="iw-modal-title">Профиль пользователя</h3>
-                    </div>
                         <div class="iw-modal-text">
                             <form class="cta-form-reg" action="{% url "users:profile" %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
@@ -62,17 +60,88 @@
                               <div>{{form.email.errors}}</div>
                               {% endif %}
                               </div>
-   
-                              <button class="btn btn--form">Сохранить</button>
+                                <button class="btn btn--form">Сохранить</button>
                             </form>
                           </div>
-                    </div>
+                  </div>
                 </div>	
-              </div>  
-              {% user_carts request as carts %}         
-              {% include "carts/includes/included_cart.html" %} 
+            </div>  
+            <div class="cta-text-box">   
+              <h3 class="iw-modal-title">Данные о товарах:</h3>
+                  {% user_carts request as carts %}         
+                  {% include "carts/includes/included_cart.html" %} 
+              <div>   
+              
+              <div class="cta-text-box">   
+                {% if carts.total_quantity %}
+                <a href="{% url "orders:create_order" %}" class="btn btn--form">Оформить заказ</a>
+                {% endif %}  
               </div>
-    </div>
-    </section>
-    {% endblock %}
+           
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-reg-orders">
+        <div class="cta-text-box">
+
+    <div class="iw-modal-wrapper-orders">
+      <div class="iw-CSS-modal-inner">
+        <div class="iw-modal-header">
+          <h3 class="iw-modal-title">Мои заказы</h3>
+        </div>
+            <div class="iw-modal-text">
+
+              {% for order in orders %}
+
+              <button class="accordion {% if order != orders.0 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
+                Заказ № {{ order.id }} - {{ order.created_timestamp }} | Оплачен: <strong class="mx-2">{{order.is_paid}}</strong>
+              </button>
+            <div class="panel" >
+                <table border="1px" width="100%">
+                      <thead>
+                          <tr>
+                              <th>Товар</th>
+                              <th>Количество</th>
+                              <th>Цена</th>
+                              <th>Общая стоимость</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {% for item in order.orderitem_set.all %}
+                          <tr>
+                              <td><a href="{% url 'goods:product' item.product.slug %}">{{ item.product.name }}</a></td>
+                              <td>{{ item.quantity }}</td>
+                              <td>{{ item.price }}</td>
+                              <td>{{ item.products_price }}</td>   
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+          
+      
+
+{% endfor %}
+</section>  
+</div>
+        </div>
+      </div>	
+
+
+
+
+</div>  
+</div>   
+
+
+</div>	
+</div>  
+</div>
+
+</section>
+
+{% endblock %}
+
+
 

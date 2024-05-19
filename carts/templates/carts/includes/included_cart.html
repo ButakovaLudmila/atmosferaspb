@@ -3,13 +3,14 @@
 
 
 <!---Разметка для модального окна---->	
-
-    <div class="iw-modal-wrapper">
+    <div class="{% if orders%}iw-modal-wrapper-orders-cart{% else %}iw-modal-wrapper{% endif %}">
     <div class="iw-CSS-modal-inner">
+      
     <div class="iw-modal-header">
     <h3 class="iw-modal-title">Корзина</h3>
     <a href="#close" title="Закрыть" class="iw-close">×</a>
     </div>
+   
     <div class="iw-modal-text">    
 
        {% for cart in carts%}
@@ -61,7 +62,7 @@
               </tr>
             </tbody>
           </table>
-          {% if carts %}
+          {% if carts and not orders%}
           <div>
             <a href="{% url "orders:create_order" %}" class="btn btn--form">Оформить заказ</a>
           </div>
@@ -70,4 +71,5 @@
     </div>
     </div>
     </div>	
+  
     <!---end.Разметка для модального окна---->	
